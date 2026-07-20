@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FirmEdge-AI — Don't Be Left Behind</title>
+<meta name="description" content="For HVAC, plumbing, auto repair, and contracting businesses across Phoenix, a leaky schedule drains thousands every month. FirmEdge-AI finds the leak, puts a number on it, and closes it — with AI doing the work in the background.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.marquee-track{animation:none!important}.marquee{overflow-x:auto!important;-webkit-mask-image:none!important;mask-image:none!important}</style></noscript>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --ink:#0A2E3B;
+  --ink-2:#0D3542;
+  --ink-3:#114050;
+  --paper:#FFFFFF;
+  --paper-2:#F3F8FA;
+  --paper-3:#E6F0F3;
+  --green:#2FD46E;
+  --green-2:#25C263;
+  --green-ink:#0E9B4E;
+  --green-050:#E7FAEE;
+  --text:#10272E;
+  --muted:#56707A;
+  --muted-d:#93AAB3;
+  --line:#E3EDF0;
+  --line-d:#1D4A59;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:var(--paper);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg,video{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{margin:0;padding:0;list-style:none}
+p{margin:0}
+h1,h2,h3,h4{font-family:Sora,"DM Sans",sans-serif;font-weight:600;line-height:1.08;letter-spacing:-.02em;margin:0;color:var(--text)}
+
+/* ============ LAYOUT ============ */
+.wrap{width:100%;max-width:1220px;margin-inline:auto;padding-inline:clamp(1.15rem,5vw,3.5rem)}
+.section{padding-block:clamp(3.6rem,7vw,6.4rem)}
+.dark{background:var(--ink);color:#E6F0F4}
+.dark h1,.dark h2,.dark h3,.dark h4{color:#fff}
+.paper2{background:var(--paper-2)}
+.muted{color:var(--muted)}
+.dark .muted{color:var(--muted-d)}
+.center{text-align:center}
+.mw{max-width:44rem}
+.mw-lg{max-width:56rem}
+
+/* ============ TYPE HELPERS ============ */
+.eyebrow{font-family:Sora;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-ink);display:inline-flex;align-items:center;gap:.5rem;background:var(--green-050);padding:.5rem 1rem;border-radius:999px}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);flex:none}
+.dark .eyebrow{color:#7EEAA3;background:rgba(47,212,110,.14)}
+.center .eyebrow{justify-content:center}
+.h-xl{font-size:clamp(2.1rem,1.3rem + 3.4vw,3.5rem)}
+.h-lg{font-size:clamp(1.85rem,1.2rem + 2.6vw,2.9rem)}
+.h-md{font-size:clamp(1.5rem,1.1rem + 1.6vw,2.05rem)}
+.lead{font-size:clamp(1.05rem,1rem + .35vw,1.22rem);color:var(--muted);line-height:1.68}
+.dark .lead{color:#C3D5DC}
+.accent{color:var(--green-ink)}
+.dark .accent{color:var(--green)}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:Sora;font-weight:600;font-size:1rem;line-height:1.3;white-space:normal;text-align:center;padding:.95rem 1.55rem;border-radius:999px;border:1.6px solid transparent;cursor:pointer;transition:transform .16s ease,background .2s ease,color .2s ease,border-color .2s ease;width:100%}
+@media(min-width:560px){.btn{width:auto}}
+.btn .arw{width:1.05rem;height:1.05rem;transition:transform .2s ease;flex:none}
+.btn:hover .arw{transform:translateX(3px)}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-2);transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#041B24;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green-ink)}
+.btn-ghost-d{background:transparent;color:#fff;border-color:rgba(255,255,255,.26)}
+.btn-ghost-d:hover{border-color:var(--green);color:var(--green)}
+.btnrow{display:flex;flex-wrap:wrap;gap:.85rem}
+
+/* ============ TOPBAR ============ */
+.topbar{background:transparent;color:#C0D2D9;font-size:.8rem;border-bottom:0;position:absolute;top:0;left:0;right:0;z-index:60}
+.topbar-in{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-block:.5rem}
+.topbar a{color:#C9D9E0;transition:color .18s ease}
+.topbar a:hover{color:var(--green)}
+.topbar .tb-item{display:inline-flex;align-items:center;gap:.45rem}
+.topbar .tb-item svg{width:14px;height:14px;color:var(--green);flex:none}
+
+/* ============ HEADER / NAV ============ */
+.header{position:absolute;top:2.4rem;left:0;right:0;z-index:70;background:transparent;border-bottom:0;transition:box-shadow .25s ease}
+.header.scrolled{box-shadow:none}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:52px}
+.brand{font-family:Sora;font-weight:700;font-size:1.16rem;color:#fff;letter-spacing:-.01em;display:inline-flex;align-items:center;gap:.5rem}
+.brand .mark{width:20px;height:20px;flex:none}
+.brand-logo{height:50px;width:auto;display:block;filter:brightness(0) invert(1)}
+.brand-logo-foot{height:52px}
+.nav-links{display:none;align-items:center;gap:1.7rem}
+.nav-links a{font-size:.92rem;color:#fff;font-weight:500;transition:color .18s ease}
+.nav-links a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:.9rem}
+.nav-cta{display:none}
+.hamburger{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:10px;background:transparent;border:0;cursor:pointer}
+.hamburger span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+.hamburger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.is-open span:nth-child(2){opacity:0}
+.hamburger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(min-width:940px){
+  .nav-links{display:flex}
+  .nav-cta{display:inline-flex}
+  .hamburger{display:none}
+}
+/* mobile menu */
+.menu{position:fixed;inset:0;z-index:65;background:var(--ink);padding:90px clamp(1.4rem,7vw,3rem) 2.5rem;display:flex;flex-direction:column;gap:.2rem;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);visibility:hidden}
+.menu.open{transform:translateX(0);visibility:visible}
+.menu a{font-family:Sora;font-size:1.35rem;font-weight:600;color:#E8F2F6;padding:.85rem 0;border-bottom:1px solid var(--line-d)}
+.menu .btn{margin-top:1.6rem}
+@media(min-width:940px){.menu{display:none}}
+
+/* ============ HERO ============ */
+.hero{position:relative;overflow:hidden;margin-top:0}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:heroFade 18s ease-in-out infinite}
+.hero-bg-img:nth-child(1){animation-delay:0s}
+.hero-bg-img:nth-child(2){animation-delay:6s}
+.hero-bg-img:nth-child(3){animation-delay:12s}
+@keyframes heroFade{0%{opacity:0}5%{opacity:1}33%{opacity:1}38%{opacity:0}100%{opacity:0}}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,46,59,.38) 0%,rgba(10,46,59,.32) 40%,rgba(10,46,59,.62) 100%);z-index:1}
+.hero::before{content:"";position:absolute;top:-32%;left:50%;transform:translateX(-50%);width:74%;height:90%;background:radial-gradient(closest-side,rgba(47,212,110,.15),transparent 72%);pointer-events:none;z-index:2}
+.hero-grid{position:relative;z-index:3}
+.hero-copy{text-align:left;max-width:62rem}
+.hero-copy .eyebrow{margin-bottom:1.25rem;justify-content:flex-start}
+.hero h1{font-size:clamp(1.92rem,1.12rem + 3.36vw,3.36rem);letter-spacing:-.03em;line-height:1.05;color:#fff}
+.hero .lead{margin-top:1.35rem;max-width:42rem;color:#fff}
+.hero .btnrow{margin-top:2rem;justify-content:flex-start}
+.hero-note{margin-top:1.1rem;font-size:.85rem;color:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:flex-start;gap:.5rem}
+.hero .section{padding-block:0}
+.hero{min-height:clamp(680px,95vh,980px);display:flex;flex-direction:column;justify-content:flex-end;padding-block:0}
+.hero>.wrap{max-width:none;padding-bottom:clamp(4rem,8vw,7rem);padding-top:clamp(9rem,17vw,13rem);padding-left:clamp(1rem,3vw,2.25rem);padding-right:clamp(1rem,3vw,2.25rem)}
+.hero-angle{position:absolute;left:0;right:0;bottom:-1px;height:clamp(38px,6vw,80px);background:var(--paper);clip-path:polygon(0 100%,100% 0,100% 100%);z-index:4;pointer-events:none}
+.pulse{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(47,212,110,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,212,110,.5)}70%{box-shadow:0 0 0 12px rgba(47,212,110,0)}100%{box-shadow:0 0 0 0 rgba(47,212,110,0)}}
+/* leak card */
+.leakcard{background:linear-gradient(160deg,#0F3844,#0B303C);border:1px solid var(--line-d);border-radius:20px;padding:clamp(1.4rem,3vw,2rem);position:relative;overflow:hidden}
+.leakcard::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.05) 1px,transparent 0);background-size:22px 22px;pointer-events:none}
+.leakcard .lc-top{display:flex;align-items:center;gap:.55rem;font-family:Sora;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green);position:relative}
+.leakcard .lc-num{font-family:Sora;font-weight:700;font-size:clamp(2.4rem,7vw,3.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-top:1.15rem;position:relative}
+.leakcard .lc-sub{color:#B5C8CF;font-size:.95rem;margin-top:.55rem;position:relative}
+.leakbar{height:8px;border-radius:6px;background:rgba(255,255,255,.08);margin-top:1.4rem;overflow:hidden;position:relative}
+.leakbar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--green-2),var(--green));width:74%;animation:fill 1.5s cubic-bezier(.22,1,.36,1) both}
+@keyframes fill{from{width:0}to{width:74%}}
+.leakcard .lc-src{font-size:.72rem;color:#6C8893;margin-top:.7rem;position:relative}
+.leakcard .lc-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--green);font-family:Sora;font-weight:600;font-size:.9rem;margin-top:1.3rem;position:relative}
+.leakcard .lc-link .arw{width:.95rem;height:.95rem;transition:transform .2s ease}
+.leakcard .lc-link:hover .arw{transform:translateX(3px)}
+
+/* ============ CREDIBILITY ============ */
+.cred{background:var(--paper)}
+.cred-grid{display:grid;grid-template-columns:1fr;gap:clamp(1.8rem,3.5vw,3rem)}
+.cred-quote{font-family:Sora;font-weight:500;font-size:clamp(1.15rem,1rem + 1vw,1.5rem);line-height:1.35;color:var(--text);letter-spacing:-.01em}
+.cred-quote .q{color:var(--green-ink)}
+.cred-list li{display:flex;gap:.85rem;padding:.75rem 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:.98rem}
+.cred-list li:last-child{border-bottom:0}
+.cred-list .tick{width:20px;height:20px;flex:none;margin-top:2px;color:var(--green)}
+.xp-badge{display:inline-flex;align-items:center;gap:.95rem;margin-top:1.8rem;background:var(--green);color:#fff;padding:1rem 1.5rem;border-radius:14px;box-shadow:0 16px 38px rgba(47,212,110,.32)}
+.xp-badge .xp-num{font-family:Sora;font-weight:700;font-size:2.3rem;line-height:1}
+.xp-badge .xp-lbl{font-size:.85rem;line-height:1.3;font-weight:600;letter-spacing:.02em}
+@media(min-width:900px){.cred-grid{grid-template-columns:1fr 1fr;align-items:center}}
+
+/* ============ GENERIC SECTION HEAD ============ */
+.shead{max-width:40rem}
+.shead .eyebrow{margin-bottom:1.1rem}
+.shead p{margin-top:1rem}
+.center .shead{margin-inline:auto}
+
+/* ============ CARD GRIDS ============ */
+.grid{display:grid;gap:1.1rem;grid-template-columns:1fr}
+.grid.g2{grid-template-columns:1fr}
+.grid.g3{grid-template-columns:1fr}
+@media(min-width:640px){.grid.g2{grid-template-columns:1fr 1fr}}
+@media(min-width:880px){.grid.g3{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:768px){.grid.g2b{grid-template-columns:1fr 1fr}}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:clamp(1.35rem,2.6vw,1.9rem);min-width:0;transition:transform .18s ease,box-shadow .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(8,35,45,.08);border-color:#CFE0E6}
+.card h3{font-size:1.18rem;margin-bottom:.55rem}
+.card p{color:var(--muted);font-size:.98rem}
+.icon-sq{width:46px;height:46px;border-radius:12px;background:var(--green-050);color:var(--green-ink);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+.icon-sq svg{width:22px;height:22px}
+.dark .card{background:var(--ink-2);border-color:var(--line-d)}
+.dark .card:hover{border-color:#2A5563;box-shadow:none}
+.dark .card p{color:var(--muted-d)}
+.dark .icon-sq{background:rgba(47,212,110,.12);color:var(--green)}
+
+/* problem list inside cards */
+.pnum{font-family:Sora;font-weight:700;font-size:.9rem;color:var(--green-ink);letter-spacing:.05em}
+/* big thin animated problem icons */
+.picon{width:clamp(56px,9vw,74px);height:clamp(56px,9vw,74px);color:var(--green-ink);margin-bottom:1.4rem}
+.picon svg{width:100%;height:100%;overflow:visible}
+.ico-cal .x1,.ico-cal .x2{stroke-dasharray:22;stroke-dashoffset:22;animation:xdraw 3.6s ease-in-out infinite}
+.ico-cal .x2{animation-delay:.28s}
+@keyframes xdraw{0%{stroke-dashoffset:22}26%{stroke-dashoffset:0}74%{stroke-dashoffset:0}100%{stroke-dashoffset:22}}
+.ico-glass .glass-body{transform-box:fill-box;transform-origin:center;animation:hflip 4.8s ease-in-out infinite}
+@keyframes hflip{0%,38%{transform:rotate(0)}50%,88%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}
+.ico-glass .grain{transform-box:fill-box;transform-origin:center;opacity:0;animation:grainfall 1.5s linear infinite}
+@keyframes grainfall{0%{opacity:0;transform:translateY(-3px)}25%{opacity:1}75%{opacity:1}100%{opacity:0;transform:translateY(6px)}}
+.ico-phone .handset{transform-box:fill-box;transform-origin:center;animation:ring 1.9s ease-in-out infinite}
+@keyframes ring{0%,56%,100%{transform:rotate(0)}64%{transform:rotate(-13deg)}74%{transform:rotate(11deg)}84%{transform:rotate(-6deg)}92%{transform:rotate(2deg)}}
+.ico-phone .wave{opacity:0;transform-box:fill-box;transform-origin:center;animation:pwave 1.9s ease-out infinite}
+.ico-phone .w2{animation-delay:.16s}
+@keyframes pwave{0%{opacity:0;transform:scale(.6)}18%{opacity:.9}55%{opacity:0;transform:scale(1)}100%{opacity:0}}
+
+/* ============ STAT (NUMBERS) ============ */
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:clamp(1.5rem,3vw,2rem);min-width:0;backdrop-filter:blur(4px)}
+/* numbers strip */
+.nums-bg{position:relative;overflow:hidden}
+.nums-bg::before{content:"";position:absolute;inset:0;background:url('https://cdn.katalyst-crm.com/t1/steel-pipelines-cables-plant.jpg') center/cover no-repeat;z-index:0}
+.nums-bg::after{content:"";position:absolute;inset:0;background:rgba(10,46,59,.72);z-index:1}
+.nums-strip{display:grid;grid-template-columns:1fr;gap:0;margin-top:2.6rem}
+@media(min-width:640px){.nums-strip{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.nums-strip{grid-template-columns:repeat(5,1fr)}}
+.ncard{padding:clamp(1.3rem,2.5vw,1.8rem);border-right:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);min-width:0;position:relative}
+@media(min-width:1100px){.ncard{border-bottom:0}.ncard:last-child{border-right:0}}
+.ncard .num{font-family:Sora;font-weight:700;font-size:clamp(2rem,1.2rem + 2.8vw,2.8rem);color:var(--green);letter-spacing:-.02em;line-height:1.05;white-space:nowrap}
+.ncard p{color:#fff;font-size:.9rem;margin-top:.7rem;line-height:1.55}
+.ncard .src{display:block;font-size:.68rem;color:rgba(255,255,255,.6);margin-top:.85rem;letter-spacing:.02em}
+.ncard::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.ncard:hover::after{transform:scaleX(1)}
+.nums-cta{margin-top:2.4rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;align-items:center;gap:1rem 2rem}
+.nums-cta p{color:#E6F0F4;font-size:1.05rem;max-width:34rem}
+.stat .num{font-family:Sora;font-weight:700;font-size:clamp(2.1rem,1.4rem + 3vw,2.9rem);color:var(--green);letter-spacing:-.02em;line-height:1}
+.stat p{color:#C0CFD6;font-size:.97rem;margin-top:.85rem}
+.stat .src{display:block;font-size:.72rem;color:#6C8893;margin-top:1rem;letter-spacing:.02em}
+.stat.feature{border-color:rgba(47,212,110,.4);background:linear-gradient(160deg,#0F3844,#0B303C)}
+
+/* ===== #whofor: 2-column with image on right ===== */
+.whofor-grid{display:grid;grid-template-columns:1fr;gap:clamp(1.2rem,2.5vw,2rem);align-items:center}
+@media(min-width:900px){.whofor-grid{grid-template-columns:.85fr 1.15fr}}
+.whofor-media{position:relative;order:0;overflow:visible}
+@media(min-width:900px){.whofor-media{order:-1}}
+.whofor-media img{width:100%;max-width:100%;height:auto;display:block;object-fit:contain}
+.whofor-copy .chips{margin-top:1.6rem}
+
+/* ===== #bigidea: quote under paragraph + image on right ===== */
+#bigidea{position:relative}
+#bigidea::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;background-position:center;mask-image:radial-gradient(ellipse at center,#000 40%,transparent 85%);-webkit-mask-image:radial-gradient(ellipse at center,#000 40%,transparent 85%);z-index:0}
+#bigidea > .wrap{position:relative;z-index:1}
+#bigidea.split, #bigidea .split{align-items:stretch}
+#bigidea .wrap.split{align-items:stretch}
+@media(min-width:860px){#bigidea .wrap.split{grid-template-columns:1.05fr .95fr}}
+#bigidea > .wrap > .reveal{text-align:left}
+#bigidea .bi-title{font-size:clamp(2rem,1.2rem + 3.4vw,3.4rem);letter-spacing:-.025em;text-align:left}
+@media(min-width:900px){#bigidea .bi-title{white-space:nowrap}}
+#bigidea .lead{text-align:left;margin-left:0}
+#bigidea .eyebrow{text-align:left}
+#bigidea .bi-quote{margin-top:1.8rem;padding:1.4rem 1.6rem;border-left:3px solid var(--green);background:rgba(47,212,110,.06);border-radius:0 12px 12px 0;font-family:Sora;font-weight:500;font-size:clamp(1.1rem,.95rem + .6vw,1.35rem);line-height:1.4;color:#EAF6EE;max-width:none;text-align:left}
+#bigidea .bi-quote .q{color:var(--green)}
+#bigidea .bi-media{display:flex;align-items:stretch;justify-content:center;height:100%;min-height:100%}
+#bigidea .bi-media img{width:100%;height:100%;object-fit:cover;border-radius:20px;box-shadow:0 22px 55px rgba(0,0,0,.35);display:block}
+
+/* ===== #method: background image, no overlay ===== */
+#method{background:url("https://cdn.katalyst-crm.com/t1/bgwhite.png") center/cover no-repeat}
+
+/* ===== #numbers: bg image + full-width + centered ===== */
+#numbers{
+  position:relative;
+  background:
+    linear-gradient(rgba(6,26,34,.86), rgba(6,26,34,.9)),
+    url("https://cdn.katalyst-crm.com/t1/steel-pipelines-cables-plant.jpg") center/cover no-repeat fixed;
+}
+#numbers > .wrap{max-width:none;padding-inline:clamp(1.15rem,4vw,4rem)}
+#numbers .shead{text-align:center;max-width:none;margin-inline:auto}
+#numbers .shead .eyebrow{margin-bottom:1rem}
+#numbers .shead h2{margin-inline:auto;max-width:none}
+@media(min-width:960px){#numbers .shead h2{white-space:nowrap}}
+#numbers .shead .lead{margin-top:1.1rem;max-width:44rem;margin-inline:auto}
+#numbers .nums-strip{grid-template-columns:1fr}
+@media(min-width:640px){#numbers .nums-strip{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){#numbers .nums-strip{grid-template-columns:repeat(5,1fr)}}
+#numbers .ncard{background:rgba(10,32,42,.55);backdrop-filter:blur(6px)}
+#numbers .nums-cta{flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:1.4rem}
+#numbers .nums-cta p{max-width:44rem;margin-inline:auto}
+
+/* ============ SPLIT STATEMENT ============ */
+.split{display:grid;grid-template-columns:1fr;gap:clamp(1.5rem,3vw,3rem);align-items:start}
+@media(min-width:860px){.split{grid-template-columns:.9fr 1.1fr}}
+.split .body p+p{margin-top:1.1rem}
+/* about bg */
+.about-bg{position:relative;overflow:hidden}
+.about-bg::before{content:"";position:absolute;inset:0;background:url('https://cdn.katalyst-crm.com/t1/silhouette-man-standing-airport_LE_upscale_gentle.jpg') center top/cover no-repeat;z-index:0}
+.about-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,46,59,.82) 0%,rgba(10,46,59,.55) 50%,rgba(10,46,59,.3) 100%);z-index:1;pointer-events:none}
+
+/* ============ BIG QUOTE ============ */
+.bigquote{position:relative;overflow:hidden}
+.bigquote::before{content:"";position:absolute;bottom:-30%;left:-8%;width:55%;height:90%;background:radial-gradient(closest-side,rgba(47,212,110,.16),transparent 72%);pointer-events:none}
+.bigquote blockquote{font-family:Sora;font-weight:600;font-size:clamp(1.3rem,1rem + 1.5vw,1.85rem);line-height:1.3;letter-spacing:-.015em;color:#fff;max-width:none;position:relative;margin:1.6rem 0 0;padding-left:1.2rem;border-left:3px solid var(--green)}
+.bigquote .q{color:var(--green)}
+
+/* ============ METHOD (process circles) ============ */
+.method-grid{display:grid;grid-template-columns:1fr;gap:2.4rem;margin-top:clamp(2.4rem,4.5vw,3.6rem)}
+@media(min-width:880px){.method-grid{grid-template-columns:repeat(3,1fr)}}
+.mstep{position:relative;text-align:center;min-width:0;padding:0 clamp(.5rem,2vw,1.5rem)}
+@media(min-width:880px){
+  .mstep:not(:last-child)::after{content:"";position:absolute;top:44px;left:calc(50% + 66px);width:calc(100% - 132px);border-top:2px dashed var(--line);}
+}
+.mstep-n{width:88px;height:88px;margin:0 auto;border-radius:50%;border:2px dashed var(--green);color:var(--green-ink);background:var(--green-050);display:flex;align-items:center;justify-content:center;font-family:Sora;font-weight:700;font-size:1.8rem;letter-spacing:-.02em;transition:background .35s ease,color .35s ease,box-shadow .35s ease,transform .3s ease;position:relative;z-index:1}
+.mstep:hover .mstep-n,.mstep:focus-within .mstep-n{background:var(--green);color:#fff;transform:translateY(-4px);box-shadow:0 16px 36px rgba(47,212,110,.4)}
+.mstep-kicker{font-family:Sora;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-ink);margin-top:1.4rem}
+.mstep-body h3{font-size:clamp(1.2rem,1rem + .7vw,1.55rem);margin-top:.5rem;margin-bottom:.55rem}
+.mstep-body p{color:var(--muted);font-size:.97rem;max-width:34ch;margin-inline:auto}
+
+/* ============ SERVICES 2x2 GRID ============ */
+.svc-grid{display:grid;grid-template-columns:1fr;gap:0;margin-top:clamp(2rem,4vw,3rem)}
+@media(min-width:640px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1060px){.svc-grid{grid-template-columns:repeat(4,1fr)}}
+.svc-card{min-width:0;background:var(--paper);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden;transition:box-shadow .3s ease;box-shadow:none;border-radius:0}
+.svc-card:last-child{border-right:0}
+@media(min-width:1060px){.svc-card{border-bottom:0}}
+.svc-card:hover{box-shadow:0 20px 50px rgba(8,35,45,.1)}
+.svc-card.hl{box-shadow:none}
+/* image */
+.svc-illus{width:100%;height:200px;position:relative;overflow:hidden;flex:none}
+.svc-illus img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.svc-card:hover .svc-illus img{transform:scale(1.06)}
+.svc-illus::after{content:"";position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green),#25C263)}
+.svc-illus .tag{position:absolute;bottom:12px;left:clamp(1rem,2vw,1.4rem);z-index:2}
+/* icon badge */
+.svc-icon{width:48px;height:48px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin:-24px 0 0 clamp(1rem,2vw,1.4rem);position:relative;z-index:2;box-shadow:0 4px 14px rgba(47,212,110,.35)}
+.svc-icon svg{width:22px;height:22px;color:#fff}
+/* content */
+.svc-body{padding:1.2rem clamp(1rem,2vw,1.4rem) clamp(1.2rem,2vw,1.6rem);display:flex;flex-direction:column;flex:1;align-items:flex-start;text-align:left}
+.svc-head{flex-direction:column;align-items:flex-start;gap:.5rem;margin-bottom:.6rem;margin-top:.4rem}
+.svc-head .tag{margin-bottom:.1rem}
+.svc-card h3{font-size:1.15rem;text-align:left}
+.svc-row{padding:.5rem 0;border-top:1px solid var(--line);width:100%}
+.svc-row .k{font-family:Sora;font-weight:600;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--green-ink);margin-bottom:.2rem;text-align:left}
+.svc-row .v{color:var(--muted);font-size:.9rem;text-align:left}
+.tag{font-family:Sora;font-weight:600;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--green);padding:.3rem .65rem;border-radius:999px;flex:none}
+.tag.ghost{color:var(--muted);background:var(--paper-3)}
+/* read more link */
+.svc-more{display:inline-flex;align-items:center;gap:.4rem;font-family:Sora;font-weight:600;font-size:.85rem;color:var(--green-ink);border:1.5px solid var(--green-ink);padding:.55rem 1.2rem;border-radius:999px;margin-top:auto;transition:background .2s ease,color .2s ease}
+.svc-more:hover{background:var(--green-ink);color:#fff}
+.svc-more svg{width:14px;height:14px}
+.tag{font-family:Sora;font-weight:600;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--green);padding:.35rem .7rem;border-radius:999px;flex:none}
+.tag.ghost{color:var(--muted);background:var(--paper-3)}
+.svc-row{padding:.75rem 0;border-top:1px solid var(--line)}
+.svc-row .k{font-family:Sora;font-weight:600;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--green-ink);margin-bottom:.25rem}
+.svc-row .v{color:var(--muted);font-size:.94rem}
+
+/* ============ WHO / VERTICALS ============ */
+.chips{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.6rem}
+.chip{font-family:Sora;font-weight:600;font-size:.92rem;padding:.6rem 1.05rem;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--text)}
+.chip.geo{background:var(--green-050);border-color:transparent;color:var(--green-ink)}
+
+/* ============ TESTIMONIALS ============ */
+.tgrid{display:grid;grid-template-columns:1fr;gap:1.1rem}
+@media(min-width:680px){.tgrid{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.tgrid{grid-template-columns:repeat(3,1fr)}}
+.tcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:1.6rem;min-width:0;display:flex;flex-direction:column}
+.tcard .quote{font-size:1rem;color:var(--text);line-height:1.6}
+.tcard .who{margin-top:1.25rem;padding-top:1.1rem;border-top:1px solid var(--line);font-size:.88rem;color:var(--muted)}
+.tcard .who .name{font-family:Sora;font-weight:600;color:var(--text);display:block}
+/* testimonials sliding marquee */
+.marquee{position:relative;margin-top:clamp(2rem,4vw,2.8rem);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:mslide 55s linear infinite;will-change:transform}
+.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
+@keyframes mslide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee .tcard{flex:0 0 auto;width:clamp(286px,80vw,360px);margin-right:1.1rem}
+.stars{color:var(--green);display:flex;gap:2px;margin-bottom:1rem}
+.stars svg{width:16px;height:16px}
+
+/* ============ LEAD MAGNET (green block) ============ */
+.leadblock{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.leadblock::before{content:"";position:absolute;inset:0;background:url('https://cdn.katalyst-crm.com/t1/top-view-laboratory-test-tubes%201.png') center/cover no-repeat;z-index:0}
+.leadblock::after{content:"";position:absolute;inset:0;background:rgba(10,46,59,.62);z-index:1;pointer-events:none}
+.leadblock .inner{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:2}
+.leadblock h2{color:#fff;font-size:clamp(1.9rem,1.2rem + 3vw,3rem)}
+.leadblock p{color:rgba(255,255,255,.92);max-width:38rem;margin-top:.9rem;font-size:1.05rem}
+.leadblock .btnrow{justify-content:center}
+.leadblock .bigarw{width:clamp(48px,7vw,72px);height:clamp(48px,7vw,72px);color:#fff;justify-self:start}
+@media(min-width:820px){.leadblock .inner{grid-template-columns:1.4fr auto}.leadblock .bigarw{justify-self:end}}
+
+/* ============ CLOSING ============ */
+.closing{text-align:center}
+.closing h2{font-size:clamp(2rem,1.3rem + 3vw,3.2rem)}
+.closing .lead{margin:1.1rem auto 2rem}
+
+/* ============ FOOTER ============ */
+.footer{background:#06222D;color:#B9C9D0;padding-block:clamp(3rem,5vw,4.5rem)}
+.foot-grid{display:grid;grid-template-columns:1fr;gap:2.2rem}
+.foot-brand .brand{margin-bottom:1rem}
+.foot-tag{font-family:Sora;color:#8FA6AF;max-width:22rem;font-size:.95rem}
+.foot-col h4{font-family:Sora;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#6C8893;margin-bottom:1rem;font-weight:600}
+.foot-col a,.foot-col p{display:block;color:#B9C9D0;font-size:.94rem;padding:.28rem 0;transition:color .18s ease}
+.foot-col a:hover{color:var(--green)}
+.foot-nav{display:grid;grid-template-columns:1fr 1fr;gap:.1rem 1.5rem}
+.foot-bottom{margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid #14404E;display:flex;flex-wrap:wrap;gap:.8rem 1.5rem;justify-content:space-between;align-items:center;font-size:.82rem;color:#7E97A1}
+.foot-bottom .tagline{font-family:Sora;color:#8FA6AF}
+@media(min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr}}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  .leakbar-fill{width:74%}
+  .ico-cal .x1,.ico-cal .x2{stroke-dashoffset:0}
+  .marquee-track{animation:none}
+  .marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  .hero-bg-img{animation:none}.hero-bg-img:first-child{opacity:1}
+}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
+
+/* ============ NOWRAP HELPER (only wide screens) ============ */
+.nowrap-lg{white-space:normal}
+@media(min-width:1000px){.nowrap-lg{white-space:nowrap}}
+
+/* ============ MOBILE & TABLET RESPONSIVE OVERRIDES ============ */
+@media(max-width:768px){
+  /* global spacing */
+  .section{padding-block:clamp(2.6rem,8vw,3.6rem)}
+  .h-xl,.h-lg,.h-md{white-space:normal!important}
+  h1,h2,h3{overflow-wrap:break-word;word-break:normal;hyphens:none}
+
+  /* hero */
+  .hero{min-height:auto}
+  .hero>.wrap{padding-top:clamp(5rem,20vw,7rem);padding-bottom:clamp(2.4rem,8vw,3.6rem);padding-left:clamp(1.15rem,5vw,1.6rem)}
+  .hero h1{font-size:clamp(1.75rem,6.5vw,2.6rem)!important}
+  .hero .lead{font-size:1rem}
+  .hero .btnrow{flex-direction:column;align-items:stretch}
+  .hero .btnrow .btn{width:100%}
+  .hero-angle{height:clamp(24px,5vw,40px)}
+
+  /* nav / topbar */
+  .brand-logo{height:40px}
+
+  /* credibility */
+  .cred-grid{grid-template-columns:1fr!important;gap:1.5rem}
+  .xp-badge{margin-top:1.2rem}
+
+  /* problem / benefits icon cards already stack via .g3 */
+
+  /* numbers strip */
+  .nums-strip,#numbers .nums-strip{grid-template-columns:1fr!important}
+  .ncard{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.1)!important}
+  .ncard:last-child{border-bottom:0!important}
+  .ncard .num{white-space:normal}
+  .nums-cta,#numbers .nums-cta{flex-direction:column;align-items:flex-start;text-align:left}
+  .nums-cta .btn{width:100%}
+
+  /* method process circles - stack, hide connector lines */
+  .method-grid{grid-template-columns:1fr!important;gap:2rem}
+  .mstep:not(:last-child)::after{display:none!important}
+
+  /* split sections stack */
+  .split{grid-template-columns:1fr!important;gap:1.5rem}
+  #bigidea .wrap.split{grid-template-columns:1fr!important}
+  .bigquote blockquote{font-size:clamp(1.25rem,5vw,1.6rem)}
+
+  /* services grid full width -> single column */
+  .svc-grid{grid-template-columns:1fr!important}
+  .svc-card{border-right:0!important;border-bottom:1px solid var(--line)!important}
+  .svc-card:last-child{border-bottom:0!important}
+  .svc-illus{height:220px}
+
+  /* about bg - stronger overlay on mobile for readability */
+  .about-bg::after{background:rgba(10,46,59,.78)!important}
+  #about .wrap>div{max-width:100%!important}
+  .about-bg p{color:#fff!important}
+
+  /* who it's for - image on top, contained */
+  .whofor-grid{grid-template-columns:1fr!important;gap:1.5rem}
+  .whofor-media{order:-1!important;overflow:visible;display:flex;justify-content:center}
+  .whofor-media img{width:70%!important;max-width:320px!important}
+  #whofor .shead h2{font-size:clamp(1.9rem,7vw,2.6rem)!important}
+  .chips{justify-content:flex-start}
+
+  /* testimonials marquee - narrower cards */
+  .marquee .tcard{width:82vw;max-width:340px}
+
+  /* lead magnet centered block */
+  .leadblock .btnrow{flex-direction:column;align-items:stretch;width:100%}
+  .leadblock .btnrow .btn{width:100%}
+
+  /* footer */
+  .foot-grid{grid-template-columns:1fr!important;gap:2rem}
+  .foot-nav{grid-template-columns:1fr 1fr}
+  .foot-bottom{flex-direction:column;align-items:flex-start;gap:.6rem}
+}
+
+@media(max-width:480px){
+  .wrap{padding-inline:1.15rem}
+  .hero h1{font-size:clamp(1.6rem,7vw,2.2rem)!important}
+  .h-lg{font-size:clamp(1.7rem,7vw,2.2rem)!important}
+  .eyebrow{font-size:.66rem;padding:.45rem .85rem}
+  .btn{font-size:.95rem;padding:.85rem 1.3rem}
+  .ncard .num{font-size:clamp(1.9rem,9vw,2.4rem)}
+  .svc-illus{height:190px}
+  .whofor-media img{width:80%!important}
+  .cred-quote{font-size:1.1rem!important}
+  .tag{font-size:.6rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a href="#top" class="brand" aria-label="FirmEdge-AI">
+        <img src="https://cdn.katalyst-crm.com/t1/logo%20bil.png" alt="FirmEdge-AI" class="brand-logo">
+      </a>
+      <div class="nav-links">
+        <a href="#problem">Problem</a>
+        <a href="#numbers">The Numbers</a>
+        <a href="#solution">Solution</a>
+        <a href="#method">Method</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+      </div>
+      <div class="nav-right">
+        <a href="#diagnostic" class="btn btn-primary nav-cta">Free Diagnostic
+          <svg class="arw" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="menu" id="mobileMenu" aria-hidden="true">
+  <a href="#problem">Problem</a>
+  <a href="#numbers">The Numbers</a>
+  <a href="#solution">Solution</a>
+  <a href="#method">Method</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#diagnostic" class="btn btn-primary">Get your free Scheduling Diagnostic
+    <svg class="arw" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="section dark hero">
+  <div class="hero-bg">
+    <div class="hero-bg-img" style="background-image:url('https://cdn.katalyst-crm.com/t1/gfddgfdggh%201.png')"></div>
+    <div class="hero-bg-img" style="background-image:url('https://cdn.katalyst-crm.com/t1/3eecc4cd9157b8db9e8e934c77182140%201.png')"></div>
+    <div class="hero-bg-img" style="background-image:url('https://cdn.katalyst-crm.com/t1/GettyImages-2206787210%201.png')"></div>
+  </div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <h1>Every no-show, empty slot, and missed callback is money you already earned. And lost.</h1>
+        <p class="lead">For HVAC, plumbing, auto repair, and contracting businesses across Phoenix, a leaky schedule drains thousands every month. FirmEdge-AI finds the leak, puts a number on it, and closes it — with AI doing the work in the background.</p>
+        <div class="btnrow">
+          <a href="#diagnostic" class="btn btn-primary">Get your free Scheduling Diagnostic
+            <svg class="arw" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#numbers" class="btn btn-ghost-d">See the numbers</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="hero-angle"></div>
+</section>
+
+<!-- ============ CREDIBILITY ============ -->
+<section class="section cred">
+  <div class="wrap cred-grid">
+    <div class="reveal">
+      <span class="eyebrow" style="margin-bottom:1.1rem">Four decades of experience</span>
+      <p class="cred-quote">Four decades solving operational problems for some of the biggest names in business.</p>
+      <p class="cred-quote" style="margin-top:1.4rem;font-size:1.05rem;font-weight:400;color:var(--muted)">“<span class="q">I help businesses eliminate operational friction</span> by combining intelligent automation, disciplined execution, and human-centered change management.”</p>
+      <div class="xp-badge reveal">
+        <span class="xp-num">40+</span>
+        <span class="xp-lbl">Years of<br>Experience</span>
+      </div>
+    </div>
+    <ul class="cred-list reveal">
+      <li><svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>40+ years in technology — programmer, project manager, systems analyst, data scientist, architect</span></li>
+      <li><svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>15 years teaching technology and programming at New York University</span></li>
+      <li><svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Experience across Wells Fargo, American Express, JPMorgan Chase, and BlueCross BlueShield</span></li>
+      <li><svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Founder of Kelley Consulting since 2004 · Certified Scrum Master · B.S. Management Science, LIU (Cum Laude)</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="shead reveal center" style="max-width:56rem;margin-inline:auto;text-align:center">
+      <span class="eyebrow">The Problem</span>
+      <h2 class="h-lg" style="font-size:clamp(2.1rem,1.3rem + 3vw,3.3rem)">A broken schedule doesn't announce itself. It just costs you.</h2>
+      <p class="lead" style="max-width:41rem;margin-inline:auto">A no-show here, a gap between jobs there, a callback that never gets returned. Easy to shrug off one at a time. Stack up a month of them and the number gets uncomfortable — and it almost never lands on a report.</p>
+    </div>
+    <div class="grid g3" style="margin-top:2.6rem">
+      <div class="card reveal">
+        <div class="picon"><svg class="ico-cal" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="7" y="11" width="34" height="30" rx="3"/>
+          <path d="M7 19h34"/>
+          <path d="M16 7v6M32 7v6"/>
+          <path class="x1" d="M19 27l10 10"/>
+          <path class="x2" d="M29 27l-10 10"/>
+        </svg></div>
+        <h3>No-shows &amp; cancellations</h3>
+        <p>No-shows and last-minute cancellations you can't refill.</p>
+      </div>
+      <div class="card reveal">
+        <div class="picon"><svg class="ico-glass" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <g class="glass-body">
+            <path d="M13 8h22M13 40h22"/>
+            <path d="M17 8c0 8 7 10 7 16s-7 8-7 16"/>
+            <path d="M31 8c0 8-7 10-7 16s7 8 7 16"/>
+            <circle class="grain" cx="24" cy="26" r="1.1" fill="currentColor" stroke="none"/>
+          </g>
+        </svg></div>
+        <h3>Idle crews &amp; bays</h3>
+        <p>Crews and bays sitting idle while calls go unanswered.</p>
+      </div>
+      <div class="card reveal">
+        <div class="picon"><svg class="ico-phone" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path class="handset" d="M44 33.84v6a4 4 0 0 1-4.36 4 39.58 39.58 0 0 1-17.26-6.14 39 39 0 0 1-12-12 39.58 39.58 0 0 1-6.14-17.34A4 4 0 0 1 8.22 4h6a4 4 0 0 1 4 3.44c.26 1.62.72 3.2 1.4 4.68a4 4 0 0 1-.9 4.22L16.18 19.82a32 32 0 0 0 12 12l2.54-2.54a4 4 0 0 1 4.22-.9c1.48.68 3.06 1.14 4.68 1.4A4 4 0 0 1 44 33.84z"/>
+          <path class="wave w1" d="M32 18a9 9 0 0 0-9-9"/>
+          <path class="wave w2" d="M39 18a16 16 0 0 0-16-16"/>
+        </svg></div>
+        <h3>Manual booking drain</h3>
+        <p>Hours lost to manual booking, rescheduling, and phone tag.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE NUMBERS ============ -->
+<section class="section dark nums-bg" id="numbers">
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="shead reveal">
+      <h2 class="h-lg">The cost of a broken schedule isn't a guess.</h2>
+      <p class="lead">Industry figures for businesses like yours. Your number is almost certainly hiding in the same places.</p>
+    </div>
+
+    <div class="nums-strip reveal">
+      <div class="ncard">
+        <div class="num" data-count-prefix="" data-count-from="0" data-count-to="50" data-count-suffix="%">20–50%</div>
+        <p>of inbound calls to home-service businesses go unanswered — 20–30% on an average day, 40–50% in peak season, exactly when the phone rings most.</p>
+        <span class="src">Source: CallRail / Invoca home-services benchmarks</span>
+      </div>
+      <div class="ncard">
+        <div class="num" data-count-from="0" data-count-to="85" data-count-suffix="%">85%</div>
+        <p>of callers who reach voicemail never call back. They dial the next name on the list, and that job is gone.</p>
+        <span class="src">Source: CallRail</span>
+      </div>
+      <div class="ncard">
+        <div class="num" data-count-prefix="$" data-count-from="0" data-count-to="1200" data-count-suffix="">$275–$1,200</div>
+        <p>the revenue riding on a single missed service call, depending on the trade. Higher for HVAC replacements and after-hours emergencies.</p>
+        <span class="src">Source: Industry call-tracking data</span>
+      </div>
+      <div class="ncard">
+        <div class="num" data-count-prefix="$" data-count-from="0" data-count-to="120" data-count-suffix="K">$45K–$120K</div>
+        <p>lost every year by a contractor missing just 5–10 calls a week. An invisible leak — nothing tells you a job walked away.</p>
+        <span class="src">Source: Contractor benchmark study (1,200+ contractors)</span>
+      </div>
+      <div class="ncard">
+        <div class="num" data-count-from="0" data-count-to="78" data-count-suffix="%">78%</div>
+        <p>of customers hire the first business that answers. Speed wins the job, not price.</p>
+        <span class="src">Source: Harvard Business Review / MIT speed-to-lead study</span>
+      </div>
+    </div>
+
+    <div class="nums-cta reveal">
+      <p>The free diagnostic replaces these industry ranges with <span class="accent">your actual figure.</span></p>
+      <a href="#diagnostic" class="btn btn-primary">Get your free Scheduling Diagnostic
+        <svg class="arw" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTION ============ -->
+<section class="section" id="solution">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">The Solution</span>
+      <h2 class="h-lg" style="margin-top:1rem">One problem. Solved properly.</h2>
+    </div>
+    <div class="body reveal">
+      <p class="lead" style="color:var(--text)">FirmEdge-AI does one thing well: we fix the scheduling that's costing you money. No sprawling transformation. No software you'll open once and never touch again.</p>
+      <p class="lead">We look hard at how your work actually gets booked, staffed, and filled, then put practical AI to work closing the gaps. You keep running your business. The system does the catching.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIG IDEA ============ -->
+<section class="section dark bigquote" id="bigidea">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">The Big Idea</span>
+      <h2 class="h-lg bi-title" style="margin-top:1rem">Level the playing field</h2>
+      <p class="lead" style="margin-top:1.2rem">For years the big operators won on size — more staff, more systems, more money to spend. AI changes that math. A small business can now run with the efficiency of a company ten times its size, without adding a single hire. That's the whole idea behind FirmEdge-AI: put the tools the giants use to work on the problem costing you the most.</p>
+      <blockquote class="bi-quote">“AI is the modern-day <span class="q">sling</span> that lets David compete with Goliath.”</blockquote>
+    </div>
+    <div class="reveal bi-media">
+      <img src="https://cdn.katalyst-crm.com/t1/e16bc159664fcebe95f1a93ef6c7affa_LE_upscale_gentle.jpg" alt="Level the playing field with AI" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="section paper2">
+  <div class="wrap">
+    <div class="shead reveal center" style="max-width:58rem;margin-inline:auto;text-align:center">
+      <span class="eyebrow">Benefits &amp; Results</span>
+      <h2 class="h-lg nowrap-lg">AI you can trust. Change you can manage.</h2>
+      <p class="lead" style="max-width:42rem;margin-inline:auto">You don't need to become a technology company. You need your schedule to stop losing money. FirmEdge-AI puts practical automation to work on that one problem, so the gains land where you feel them:</p>
+    </div>
+    <div class="grid g3" style="margin-top:2.6rem">
+      <div class="card reveal">
+        <div class="icon-sq"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Revenue recovered</h3>
+        <p>Revenue recovered from no-shows and cancellations.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon-sq"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M8 2v4M16 2v4M8 14h3M8 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Capacity filled</h3>
+        <p>Capacity filled instead of sitting idle.</p>
+      </div>
+      <div class="card reveal">
+        <div class="icon-sq"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Staff hours freed</h3>
+        <p>Staff hours freed from the booking grind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section class="section" id="method">
+  <div class="wrap">
+    <div class="shead reveal center" style="max-width:58rem;margin-inline:auto;text-align:center">
+      <span class="eyebrow">The Method</span>
+      <h2 class="h-lg nowrap-lg">The FirmEdge-AI Scheduling Method</h2>
+      <p class="lead" style="max-width:42rem;margin-inline:auto">One repeatable process, the same for every business. We start by understanding the problem, not throwing technology at it.</p>
+    </div>
+    <div class="method-grid reveal">
+      <div class="mstep">
+        <span class="mstep-n">01</span>
+        <div class="mstep-body">
+          <div class="mstep-kicker">Workflow analysis</div>
+          <h3>We map the leak</h3>
+          <p>We map exactly how your business books, staffs, and fills its schedule — and where the money leaks out.</p>
+        </div>
+      </div>
+      <div class="mstep">
+        <span class="mstep-n">02</span>
+        <div class="mstep-body">
+          <div class="mstep-kicker">Roadmap</div>
+          <h3>We prioritise the fix</h3>
+          <p>A clear, prioritized plan showing what to fix first and what each fix is worth.</p>
+        </div>
+      </div>
+      <div class="mstep">
+        <span class="mstep-n">03</span>
+        <div class="mstep-body">
+          <div class="mstep-kicker">Automation</div>
+          <h3>We put AI to work</h3>
+          <p>We put AI to work on the gaps, then show you exactly how it runs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section paper2" id="services" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="shead reveal center" style="max-width:54rem;margin-inline:auto;text-align:center">
+      <span class="eyebrow">Services &amp; Outcomes</span>
+      <h2 class="h-lg" style="font-size:clamp(2rem,1.3rem + 3vw,3.2rem)">Ways to work together — and what you get</h2>
+      <p class="lead">One service, four ways in. Each stage ends with something concrete in your hands.</p>
+    </div>
+  </div>
+  <div class="svc-grid">
+      <div class="svc-card hl reveal">
+        <div class="svc-illus">
+          <img src="https://cdn.katalyst-crm.com/t1/person-using-laptop-with-calendar-interface-online-scheduling.jpg" alt="Scheduling diagnostic on laptop" loading="lazy">
+          <span class="tag">Free</span>
+        </div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="svc-body">
+          <div class="svc-head"><h3>The free Scheduling Diagnostic</h3></div>
+          <div class="svc-row"><div class="k">What it is</div><div class="v">A short conversation plus a calculator that pinpoints where your schedule is leaking money.</div></div>
+          <div class="svc-row"><div class="k">You walk away with</div><div class="v">Your own number — what a broken schedule is costing you right now — plus a written mini-report to keep.</div></div>
+          <div class="svc-row"><div class="k">Who it’s for</div><div class="v">Any owner who suspects the phone, calendar, or unfilled capacity is costing them, and wants proof before spending a cent.</div></div>
+          <a href="#diagnostic" class="svc-more">Read More <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-illus">
+          <img src="https://cdn.katalyst-crm.com/t1/scheduling-time-management-concept.jpg" alt="Scheduling assessment and time management" loading="lazy">
+        </div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="svc-body">
+          <div class="svc-head"><h3>The Scheduling Assessment</h3></div>
+          <div class="svc-row"><div class="k">What it is</div><div class="v">A full diagnostic that traces the root cause of the leak and turns it into a prioritized action plan.</div></div>
+          <div class="svc-row"><div class="k">You walk away with</div><div class="v">A clear roadmap showing what to fix first and what each fix is worth.</div></div>
+          <div class="svc-row"><div class="k">Who it’s for</div><div class="v">Owners ready to move from “something’s off” to a concrete plan.</div></div>
+          <a href="#diagnostic" class="svc-more">Read More <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-illus">
+          <img src="https://cdn.katalyst-crm.com/t1/technology-concept-with-futuristic-element%20(4).jpg" alt="AI automation implementation" loading="lazy">
+        </div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="svc-body">
+          <div class="svc-head"><h3>Implementation</h3></div>
+          <div class="svc-row"><div class="k">What it is</div><div class="v">Bill stays on as strategist while a technical team builds and installs the automation.</div></div>
+          <div class="svc-row"><div class="k">You walk away with</div><div class="v">A working system that catches the jobs, calls, and slots you were losing — without adding headcount.</div></div>
+          <div class="svc-row"><div class="k">Who it’s for</div><div class="v">Owners who want the fix built and running, not just recommended.</div></div>
+          <a href="#diagnostic" class="svc-more">Read More <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-illus">
+          <img src="https://cdn.katalyst-crm.com/t1/a9f12efa6f434ae9291a12db6b8f2d8d.jpg" alt="Fractional AI advisor consulting" loading="lazy">
+          <span class="tag ghost">Monthly</span>
+        </div>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="svc-body">
+          <div class="svc-head"><h3>Fractional AI Advisor</h3></div>
+          <div class="svc-row"><div class="k">What it is</div><div class="v">An ongoing engagement — a set block of hours each month to keep improving as your business and the tools change.</div></div>
+          <div class="svc-row"><div class="k">You walk away with</div><div class="v">A senior operator on call, tuning the system and finding the next opportunity every month.</div></div>
+          <div class="svc-row"><div class="k">Who it’s for</div><div class="v">Established businesses that want to keep the edge, not set it once and forget it.</div></div>
+          <a href="#diagnostic" class="svc-more">Read More <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section dark about-bg" id="about">
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="reveal" style="max-width:42rem">
+      <span class="eyebrow">About</span>
+      <h2 class="h-lg nowrap-lg" style="margin-top:1rem">Why FirmEdge-AI exists</h2>
+      <p class="lead" style="margin-top:1.4rem;color:#fff">After decades inside large corporations, Bill kept seeing the same pattern: the giants used their size to outrun smaller competitors who simply couldn't keep pace. AI is the first thing he's seen that truly changes that — it rewards experience and judgment over raw scale, and lets a small business compete in the same arena as companies many times its size. FirmEdge-AI is how Bill puts that belief to work, one owner and one schedule at a time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO IT'S FOR ============ -->
+<section class="section" id="whofor" style="overflow:hidden">
+  <div class="wrap whofor-grid">
+    <div class="whofor-copy">
+      <div class="shead reveal" style="max-width:none">
+        <span class="eyebrow">Who It's For</span>
+        <h2 class="h-lg" style="font-size:clamp(2.2rem,1.5rem + 3vw,3.4rem)">Built for Phoenix-area owners who feel every empty slot</h2>
+        <p class="lead">FirmEdge-AI works best for owner-operators of established small and mid-sized businesses in HVAC, plumbing, auto repair, and the trades across Phoenix, Cave Creek, and the greater Phoenix metro. If scheduling touches your revenue and you're ready to stop guessing at the cost, we should talk.</p>
+      </div>
+      <div class="chips reveal">
+        <span class="chip">HVAC</span>
+        <span class="chip">Plumbing</span>
+        <span class="chip">Auto Repair</span>
+        <span class="chip">Contracting &amp; Trades</span>
+        <span class="chip geo">Phoenix</span>
+        <span class="chip geo">Cave Creek</span>
+        <span class="chip geo">Greater Phoenix Metro</span>
+      </div>
+    </div>
+    <div class="whofor-media reveal">
+      <img src="https://cdn.katalyst-crm.com/t1/jkhkjjk.png" alt="Phoenix-area owner at work" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section paper2">
+  <div class="wrap">
+    <div class="shead reveal center" style="margin-inline:auto">
+      <span class="eyebrow">Testimonials</span>
+      <h2 class="h-lg">What owners say after the leak is fixed</h2>
+    </div>
+    <div class="marquee reveal">
+      <div class="marquee-track">
+        <div class="tcard">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></div>
+          <p class="quote">“We were losing two or three jobs a week to no-shows and didn't realize it until Bill put a real number on it. The diagnostic paid for itself the first month.”</p>
+          <div class="who"><span class="name">Marcus D.</span>Owner, Desert Air HVAC · Phoenix, AZ</div>
+        </div>
+        <div class="tcard">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></div>
+          <p class="quote">“I thought I needed to hire another dispatcher. Turned out I needed better systems. FirmEdge-AI closed the gaps without adding a dime to payroll.”</p>
+          <div class="who"><span class="name">Rosa M.</span>Owner, Canyon State Plumbing · Cave Creek, AZ</div>
+        </div>
+        <div class="tcard">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></div>
+          <p class="quote">“Bill didn't walk in talking about AI. He asked how my shop actually runs. By the time we automated anything, he understood the problem better than I did.”</p>
+          <div class="who"><span class="name">Danny K.</span>Owner, Grand Ave Auto Repair · Glendale, AZ</div>
+        </div>
+        <div class="tcard">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></div>
+          <p class="quote">“The calculator alone was worth the call. Seeing the actual dollars my schedule was leaking every month changed how I run the whole business.”</p>
+          <div class="who"><span class="name">Terry W.</span>Owner, Whitfield Contracting · Scottsdale, AZ</div>
+        </div>
+        <div class="tcard">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></div>
+          <p class="quote">“Forty years of experience shows. Bill has been solving operational problems since before most ‘AI consultants' were born, and it's obvious within five minutes.”</p>
+          <div class="who"><span class="name">Angela R.</span>Practice Manager, North Valley Dental · Phoenix, AZ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEAD MAGNET ============ -->
+<section class="section leadblock" id="diagnostic">
+  <div class="wrap inner">
+    <div class="reveal">
+      <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.18)">Don't Be Left Behind</span>
+      <h2 style="margin-top:1rem">Start with the number</h2>
+      <p>Before you commit to anything, find out what a broken schedule is actually costing you. The FirmEdge-AI Scheduling Diagnostic is free, quick, and specific to your business. Real figures, not a sales pitch.</p>
+      <p style="margin-top:1.2rem">Don't get left behind. One conversation is enough to know whether FirmEdge-AI can help. No jargon, no pressure — just a clear look at what's fixable.</p>
+      <div class="btnrow" style="margin-top:1.8rem">
+        <a href="mailto:BillKelley@firmedge-ai.com?subject=Free%20Scheduling%20Diagnostic" class="btn btn-primary">Get your free Scheduling Diagnostic
+          <svg class="arw" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="mailto:BillKelley@firmedge-ai.com?subject=Book%20a%20conversation%20with%20Bill" class="btn btn-ghost-d">Book a conversation with Bill
+          <svg class="arw" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand" aria-label="FirmEdge-AI"><img src="https://cdn.katalyst-crm.com/t1/logo%20bil.png" alt="FirmEdge-AI" class="brand-logo brand-logo-foot"></a>
+        <p class="foot-tag">Don't Be Left Behind — turning operational inefficiency into measurable business value.</p>
+        <a href="#diagnostic" class="btn btn-ghost-d" style="margin-top:1.5rem;width:auto">Get your free Scheduling Diagnostic
+          <svg class="arw" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h4>Navigate</h4>
+        <div class="foot-nav">
+          <a href="#problem">Problem</a>
+          <a href="#numbers">The Numbers</a>
+          <a href="#solution">Solution</a>
+          <a href="#method">Method</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#diagnostic">Free Diagnostic</a>
+          <a href="#diagnostic">Book a Call</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <p>Bill Kelley</p>
+        <a href="mailto:BillKelley@firmedge-ai.com">BillKelley@firmedge-ai.com</a>
+        <p>Phoenix &amp; Cave Creek, AZ</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 FirmEdge-AI · Kelley Consulting, LLC. All rights reserved.</span>
+      <span class="tagline">Built by <strong style="color:var(--green)">KATEK AI</strong></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var body = document.body;
+  var ham = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+
+  function setOpen(open){
+    menu.classList.toggle('open', open);
+    ham.classList.toggle('is-open', open);
+    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    body.style.overflow = open ? 'hidden' : '';
+  }
+  ham.addEventListener('click', function(){ setOpen(!menu.classList.contains('open')); });
+  menu.addEventListener('click', function(e){ if(e.target.tagName === 'A') setOpen(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setOpen(false); });
+  document.addEventListener('click', function(e){
+    if(menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target)) setOpen(false);
+  });
+  window.addEventListener('resize', function(){ if(window.innerWidth >= 940) setOpen(false); });
+
+  // sticky header shadow
+  var header = document.querySelector('.header');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 12); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // reveal on scroll
+  var reveals = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  // testimonials marquee: duplicate the set for a seamless loop
+  var mtrack = document.querySelector('.marquee-track');
+  if(mtrack && !reduce){
+    Array.prototype.slice.call(mtrack.children).forEach(function(el){
+      var c = el.cloneNode(true);
+      c.setAttribute('aria-hidden','true');
+      mtrack.appendChild(c);
+    });
+  }
+
+  // animated number counters
+  (function(){
+    var nums = document.querySelectorAll('[data-count-to]');
+    if(!nums.length) return;
+    function animate(el){
+      if(el.dataset.counted) return;
+      el.dataset.counted = '1';
+      var to = +el.dataset.countTo;
+      var from = +el.dataset.countFrom || 0;
+      var prefix = el.dataset.countPrefix || '';
+      var suffix = el.dataset.countSuffix || '';
+      var final = el.textContent;
+      var dur = 2200;
+      var start = null;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var ease = 1 - Math.pow(1 - p, 3);
+        var v = Math.round(from + (to - from) * ease);
+        el.textContent = prefix + v.toLocaleString() + suffix;
+        if(p < 1) requestAnimationFrame(step);
+        else el.textContent = final;
+      }
+      if(reduce){ el.textContent = final; return; }
+      requestAnimationFrame(step);
+    }
+    if('IntersectionObserver' in window && !reduce){
+      var cio = new IntersectionObserver(function(ents){
+        ents.forEach(function(en){
+          if(en.isIntersecting){ animate(en.target); cio.unobserve(en.target); }
+        });
+      },{threshold:0.15});
+      nums.forEach(function(el){ cio.observe(el); });
+    } else {
+      nums.forEach(function(el){ el.textContent = el.textContent; });
+    }
+  })();
+
+})();
+</script>
+</body>
+</html>
