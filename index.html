@@ -217,9 +217,10 @@ h1,h2,h3,h4{font-family:Sora,"DM Sans",sans-serif;font-weight:600;line-height:1.
 .nums-strip{display:grid;grid-template-columns:1fr;gap:0;margin-top:2.6rem}
 @media(min-width:640px){.nums-strip{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1100px){.nums-strip{grid-template-columns:repeat(5,1fr)}}
-.ncard{padding:clamp(1.3rem,2.5vw,1.8rem);border-right:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);min-width:0;position:relative}
+.ncard{padding:clamp(1.3rem,2.5vw,1.8rem);border-right:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);min-width:0;position:relative;container-type:inline-size}
 @media(min-width:1100px){.ncard{border-bottom:0}.ncard:last-child{border-right:0}}
-.ncard .num{font-family:Sora;font-weight:700;font-size:clamp(2rem,1.2rem + 2.8vw,2.8rem);color:var(--green);letter-spacing:-.02em;line-height:1.05;white-space:nowrap}
+.ncard .num{font-family:Sora;font-weight:700;font-size:clamp(2rem,1.2rem + 2.8vw,2.8rem);color:var(--green);letter-spacing:-.02em;line-height:1.05;white-space:normal}
+@media(min-width:1100px){.ncard .num{font-size:clamp(1.35rem,15cqi,2.8rem)}}
 .ncard p{color:#fff;font-size:.9rem;margin-top:.7rem;line-height:1.55}
 .ncard .src{display:block;font-size:.68rem;color:rgba(255,255,255,.6);margin-top:.85rem;letter-spacing:.02em}
 .ncard::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.22,1,.36,1)}
